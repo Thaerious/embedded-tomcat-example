@@ -17,7 +17,7 @@ public class WordgameServerEndpoint {
     @OnMessage
     public String onMessage(String message, Session session) {
         System.out.println("message: " + message);
-        return message;
+        return "echo " + message;
     }
 
     @OnClose

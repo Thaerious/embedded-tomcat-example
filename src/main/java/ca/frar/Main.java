@@ -6,14 +6,15 @@ import org.apache.catalina.startup.Tomcat;
 
 public class Main {
     public static void main(String ... args) throws LifecycleException, ServletException{
-        File webapps = new File("./target");
-        File war = new File("./target/wordgame-1.0-SNAPSHOT.war");
-        
+        File webapps = new File("target");
+        File war = new File("target/embeddedExample-1.0-SNAPSHOT.war");
+
         Tomcat tomcat = new Tomcat();
         tomcat.setPort(8080);
+                
         tomcat.setBaseDir(webapps.getAbsolutePath());
-        
         tomcat.addWebapp("/wordgame", war.getAbsolutePath());
+        tomcat.getConnector();        
 
         tomcat.start();
         tomcat.getServer().await();
